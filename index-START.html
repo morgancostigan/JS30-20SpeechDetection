@@ -10,7 +10,19 @@
   </div>
 
 <script>
-  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;  //webkit version is for chrome, so setting it to SpeechRecognition for ease of use
+
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true; //allows the browser to populate results while still speaking
+
+  let p = document.createElement('p');
+  const words = document.querySelector('.words'); 
+  words.appendChild(p); 
+
+  recognition.addEventListener('results', e=> {
+    console.log(e);
+    
+  })
 
 
 </script>
